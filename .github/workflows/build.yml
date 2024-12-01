@@ -76,7 +76,6 @@ jobs:
           curl -sSL ${applications1} | grep -Ev '#|IP-' > ./tmp/temp-applications.txt
           curl -sSL ${applications2} | grep -v 'payload:' | sed -e 's/^[ \t]*- //' >> ./tmp/temp-applications.txt
           sed -i "/aria2/d" ./tmp/temp-applications.txt
-          sed -i "$ a\PROCESS-NAME,tailscale\nPROCESS-NAME,tailscale.exe" ./tmp/temp-applications.txt
           sort --ignore-case -u ./tmp/temp-applications.txt > ./domains/applications.list
 
       - name: Generate private
